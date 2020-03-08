@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="jumbotron">
+    <form  #form="ngForm">
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" [(ngModel)]="email" class="form-control" #emailType="ngModel" required>
+        <span class="help-block" *ngIf="emailType.errors?.required && emailType.touched" style="color: tomato;">
+          Email  is required
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="password">password</label>
+        <input type="password" name="password" id="password" [(ngModel)]="password"class="form-control" #passswordType="ngModel" required>
+        <span class="help-block" *ngIf="passswordType.errors?.required && passswordType.touched" style="color: tomato;" >
+          password  is required
+        </span>
+      </div>
+
+      <div class="text text-center">
+        <button class="btn btn-primary" [disabled]="!form.valid" (click)="move(form.value)"> Submit </button>
+      </div>
+      <a [routerLink]="['/dashboard']" routerLinkActive="router-link-active" >Click</a>
+    </form>
+  </div>
+  </div>
