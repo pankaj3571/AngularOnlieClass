@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {CommonService} from "../common.service";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,10 +10,11 @@ export class LoginComponent implements OnInit {
 
 
   email:any;
-  password:any
+  username:any;
+  mobile:any
   value:any;
-
-  constructor(private router:Router) { }
+  obj:any;
+  constructor(private router:Router,private service:CommonService) { }
 
   ngOnInit() {
   }
@@ -34,6 +36,19 @@ export class LoginComponent implements OnInit {
     else{
       alert('not matched')
     }
+  }
+
+
+  registerDetails(){
+    this.obj={
+      email:this.email,
+      username:this.username,
+      mobile:this.mobile
+    }
+    this.service.registerData(this.obj).subscribe(data=>{
+      console.log(data)
+    })
+
   }
 }
 
