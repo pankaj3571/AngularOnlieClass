@@ -11,12 +11,15 @@ export class LoginComponent implements OnInit {
 
   email:any;
   username:any;
-  mobile:any
+  mobile:any;
+  password:any;
   value:any;
   obj:any;
+  
   constructor(private router:Router,private service:CommonService) { }
 
   ngOnInit() {
+    this.getData()
   }
 
   move(event){
@@ -43,12 +46,20 @@ export class LoginComponent implements OnInit {
     this.obj={
       email:this.email,
       username:this.username,
-      mobile:this.mobile
+      mobile:this.mobile,
+      password:this.password
     }
     this.service.registerData(this.obj).subscribe(data=>{
       console.log(data)
+      alert(data['message']) 
     })
 
+  }
+
+  getData(){
+    this.service.getData().subscribe(data=>{
+      console.log(data)
+    })
   }
 }
 

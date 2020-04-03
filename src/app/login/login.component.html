@@ -10,6 +10,13 @@
         </span>
       </div>
       <div class="form-group">
+        <label for="password">password</label>
+        <input type="password" name="password" id="password" [(ngModel)]="password" class="form-control" #passwordType="ngModel" required>
+        <span class="help-block" *ngIf="passwordType.errors?.required && passwordType.touched" style="color: tomato;">
+          password  is required
+        </span>
+      </div>
+      <div class="form-group">
         <label for="password">username</label>
         <input type="text" name="username" id="username" [(ngModel)]="username"class="form-control" #usernameType="ngModel" required>
         <span class="help-block" *ngIf="usernameType.errors?.required && usernameType.touched" style="color: tomato;" >

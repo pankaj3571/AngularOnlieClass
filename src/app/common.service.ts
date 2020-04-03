@@ -16,4 +16,7 @@ export class CommonService{
   registerData(obj:any){
     return this.httpClient.post("http://localhost:3000/registerdata",obj)
   }
+  getData(){
+    return this.httpClient.get("http://localhost:3000/getData")
+  }
 }
