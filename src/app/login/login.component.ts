@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
         username:this.username,
         password:this.password
       }
+      console.log(this.obj);
         this.service.login(this.obj).subscribe(data=>{
             if(data['status']){
               this.router.navigate(['dashboard'])
