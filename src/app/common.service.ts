@@ -24,5 +24,11 @@ export class CommonService{
   login(obj:any){
     return this.httpClient.post("http://localhost:3000/login",obj)
   }
+  edit(obj:any){
+    return this.httpClient.post("http://localhost:3000/update",obj)
+  }
 
+  deleteData(obj:any){
+    return this.httpClient.post("http://localhost:3000/delete",obj)
+  }
 }
